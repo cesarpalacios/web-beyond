@@ -11,6 +11,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/bootstrap.min.css">
+        <script src="js/authors.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -44,53 +45,32 @@
                 <img class="img-fluid" src="img/RICK&MORTHY.png" alt="Imagen RICKANDMORTHY">
 
         </div>
-        <div class="container">
-        <form>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                    <label for="inputEmail4">Email</label>
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-                    </div>
-                    <div class="form-group col-md-6">
-                    <label for="inputPassword4">Password</label>
-                    <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="inputAddress">Address</label>
-                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                </div>
-                <div class="form-group">
-                    <label for="inputAddress2">Address 2</label>
-                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                    <label for="inputCity">City</label>
-                    <input type="text" class="form-control" id="inputCity">
-                    </div>
-                    <div class="form-group col-md-4">
-                    <label for="inputState">State</label>
-                    <select id="inputState" class="form-control">
-                        <option selected>Choose...</option>
-                        <option>...</option>
-                    </select>
-                    </div>
-                    <div class="form-group col-md-2">
-                    <label for="inputZip">Zip</label>
-                    <input type="text" class="form-control" id="inputZip">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
-                        Check me out
-                    </label>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary">Sign in</button>
+
+        <div class="container text-center">
+            <container>
+                <form name="form">
+                    <label for="exampleInputEmail1">Inserte ID del autor</label>
+                    <input type="email" class="form-control" id="Email" name="id_autor" aria-describedby="emailHelp" placeholder="Inserte el ID del Autor">
+                    <label for="exampleInputEmail1">Inserte Nombre Libro</label>
+                    <input type="email" class="form-control" name="nombre_libro_autor" aria-describedby="emailHelp" placeholder="Inserte el Nombre del nuevo Libro">
+                    
+                    <br/>
+                    <button onclick="authors_post()" type="button" class="btn btn-primary">Ingresar</button>
                 </form>
+            <container>
+            <container> 
+                    <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">Autor ID</th>
+                        <th scope="col">Title</th>
+                    </tr>
+                    </thead>
+                    <tbody id="autores">
+                    </tbody>
+                    </table>
+            </container>
         </div>
 
     </body>
