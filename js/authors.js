@@ -1,8 +1,9 @@
 //document.getElementById('authors')?.innerHTML('hola')
 
-fetch('https://8ffa-138-84-41-69.ngrok.io/get_books')
+fetch('http://127.0.0.1:5000/get_books')
     .then(response => response.json())
     .then(json => authors_get(json.books))
+
 
 
 function authors_get(lista){
@@ -15,10 +16,8 @@ function authors_get(lista){
             <td>${author.title}</td>
           </tr>
         `
-       
     }
     )
-
 }
 
 
@@ -39,7 +38,7 @@ function authors_post(){
             body: raw,
         };
     
-        fetch("https://8ffa-138-84-41-69.ngrok.io/insert_books", requestOptions)
+        fetch("http://127.0.0.1:5000/insert_books", requestOptions)
         .then(response => response.json())
         .then(json => console.log(json))
         .catch(error => alert('error', error));
