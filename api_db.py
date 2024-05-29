@@ -26,15 +26,17 @@ import mysql.connector
 
 app = Flask(__name__)
 db = mysql.connector.connect(
-    host="semillero.cpunrzcug1yw.us-east-2.rds.amazonaws.com",
-    user="admin",
-    password="Admin123",
+    host="192.168.64.5",
+    user="ceapalaciosal",
+    password="c3s4r_p4l4c10s",
     database="books",
-    port=3308
+    port=3306
 )
 
 cursor = db.cursor()
-
+cursor.execute("SELECT * FROM author")
+authors = cursor.fetchall()
+print(authors)
 
 class Author:
     def __init__(self, id, name):
@@ -55,6 +57,10 @@ class Book:
         return {'id': self.id, 'title': self.title, 'author_id': self.author_id}
 
 
+@app.route('/')
+def index():
+    return 'Bienvenido a mi web'
+
 @app.route('/authors', methods=['GET', 'POST'])
 def manage_authors():
     if request.method == 'GET':
@@ -64,6 +70,7 @@ def manage_authors():
         return jsonify({'authors': author_list})
     elif request.method == 'POST':
         data = request.get_json()
+        print(data)
         cursor.execute("INSERT INTO author (name) VALUES (%s)", (data['name'],))
         db.commit()
         return jsonify({'message': 'Author added successfully'})
@@ -87,7 +94,7 @@ def insert_books():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=8000)
 
 
 
