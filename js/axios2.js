@@ -5,17 +5,28 @@ fetch('https://rickandmortyapi.com/api/character')
 
 function Personajes(character){
     const container = document.getElementById('personajes')
-    character.map(personajillo => {
-        container.innerHTML +=`
-            <div class="col">
+    
+    character.map(rick => {container.innerHTML += `
+        <div class="col">
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src=${personajillo.image} alt="Card image cap">
+                <img class="card-img-top" src=${rick.image} alt="Card image cap">
                 <div class="card-body">
-                    <p class="card-text">${personajillo.name}</p>
+                    <p class="card-text">${rick.name}</p>
                 </div>
-        </div>
-        </div>
-        `});
+            </div>
+        </div>`})
+
+    // .map(personajillo => {
+    //     container.innerHTML +=`
+    //         <div class="col">
+    //         <div class="card" style="width: 18rem;">
+    //             <img class="card-img-top" src=${personajillo.image} alt="Card image cap">
+    //             <div class="card-body">
+    //                 <p class="card-text">${personajillo.name}</p>
+    //             </div>
+    //     </div>
+    //     </div>
+    //     `});
 
     // container.innerHTML = `
     // <div class="row">
